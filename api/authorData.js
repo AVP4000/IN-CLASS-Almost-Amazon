@@ -1,6 +1,6 @@
-// import client from '../utils/client';
+import client from '../utils/client';
 
-// const endpoint = client.databaseURL;
+const endpoint = client.databaseURL;
 
 // FIXME:  GET ALL AUTHORS
 const getAuthors = () => {};

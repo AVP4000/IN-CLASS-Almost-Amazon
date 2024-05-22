@@ -11,6 +11,7 @@ const navigationEvents = () => {
   // TODO: BOOKS ON SALE
   document.querySelector('#sale-books').addEventListener('click', () => {
     console.warn('CLICKED SALE BOOKS');
+    booksOnSale().then(showBooks);
   });
 
   // TODO: ALL BOOKS

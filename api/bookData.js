@@ -1,4 +1,5 @@
 import client from '../utils/client';
+
 // API CALLS FOR BOOKS
 
 const endpoint = client.databaseURL;
@@ -59,7 +60,7 @@ const createBook = (payload) => new Promise((resolve, reject) => {
 // TODO: UPDATE BOOK
 const updateBook = (payload) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/books/${payload.firebaseKey}.json`, {
-    method: 'POST',
+    method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
     }, // you technically do not need the options object for GET requests, but using it here for consistency
@@ -71,7 +72,17 @@ const updateBook = (payload) => new Promise((resolve, reject) => {
 });
 
 // TODO: FILTER BOOKS ON SALE
-const booksOnSale = () => {};
+const booksOnSale = (payload) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/books.json?orderBy="sale"&equalTo=true`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(Object.values(data)))
+    .catch(reject);
+});
 
 // TODO: STRETCH...SEARCH BOOKS
 
