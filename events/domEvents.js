@@ -1,3 +1,7 @@
+import { deleteBook, getBooks } from '../api/bookData';
+import { showBooks } from '../pages/books';
+import addBookForm from '../components/forms/addBookForm';
+
 const domEvents = () => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
     // TODO: CLICK EVENT FOR DELETING A BOOK
@@ -16,7 +20,8 @@ const domEvents = () => {
 
     // TODO: CLICK EVENT FOR SHOWING FORM FOR ADDING A BOOK
     if (e.target.id.includes('add-book-btn')) {
-      console.warn('ADD BOOK');
+      // console.warn('ADD BOOK');
+      addBookForm();
     }
 
     // TODO: CLICK EVENT EDITING/UPDATING A BOOK

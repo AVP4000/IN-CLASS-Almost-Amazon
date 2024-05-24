@@ -1,4 +1,4 @@
-import { getBooks } from '../api/bookData';
+import { getBooks, booksOnSale } from '../api/bookData';
 import { showBooks } from '../pages/books';
 import { signOut } from '../utils/auth';
 
