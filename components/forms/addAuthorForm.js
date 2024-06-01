@@ -1,10 +1,10 @@
 import clearDom from '../../utils/clearDom';
 import renderToDOM from '../../utils/renderToDom';
 
-const addAuthorForm = () => {
+const addAuthorForm = (obj = {}) => {
   clearDom();
   const domString = `
-    <form id="submit-author" class="mb-4">
+    <form id="${obj.firebaseKey ? `update-author--${obj.firebaseKey}` : 'submit-author'}" class="mb-4">
       <div class="form-group">
         <label for="image">First Name</label>
         <input type="text" class="form-control" id="first_name" placeholder="First Name" required>
@@ -17,6 +17,11 @@ const addAuthorForm = () => {
         <label for="title">Email</label>
         <input type="email" class="form-control" id="email" aria-describedby="Email" placeholder="Enter Email" required>
       </div>
+      <div class="form-check">
+      <input type="checkbox" class="form-check-input" id="favorite" ${obj.favorite ? 'checked' : ''}>
+      <label class="form-check-label" for="favorite">FAVE?</label>
+    </div>
+  </div>
       <button type="submit" class="btn btn-primary mt-3">Submit Author</button>
     </form>`;
 
