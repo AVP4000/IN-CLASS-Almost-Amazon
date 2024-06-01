@@ -12,8 +12,15 @@ const getBooks = () => new Promise((resolve, reject) => {
       'Content-Type': 'application/json',
     }, // you technically do not need the options object for GET requests, but using it here for consistency
   })
+  // updated getbooks function to handle a null value from the API
     .then((response) => response.json())
-    .then((data) => resolve(Object.values(data)))
+    .then((data) => {
+      if (data) {
+        resolve(Object.values(data));
+      } else {
+        resolve([]);
+      }
+    })
     .catch(reject);
 });
 
